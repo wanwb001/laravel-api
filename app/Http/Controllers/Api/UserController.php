@@ -22,7 +22,7 @@ class UserController extends Controller
 
     //用户注册
     public function store(Request $request){
-
+        0/3;
         User::create($request->all());
         return $this->setStatusCode(201)->success('用户注册成功');
     }
