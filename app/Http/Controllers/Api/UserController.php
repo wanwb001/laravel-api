@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\UserRequest;
 use App\Http\Resources\Api\UserResource;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
@@ -22,13 +23,14 @@ class UserController extends Controller
 
     //用户注册
     public function store(Request $request){
-        0/3;
+       
         User::create($request->all());
         return $this->setStatusCode(201)->success('用户注册成功');
     }
     //用户登录
     public function login(Request $request){
         $token=Auth::guard('api')->attempt(['name'=>$request->name,'password'=>$request->password]);
+
         if($token) {
             return $this->setStatusCode(201)->success(['token' => 'bearer ' . $token]);
         }

@@ -39,6 +39,7 @@ class ExceptionReport
      */
     function __construct(Request $request, Exception $exception)
     {
+
         $this->request = $request;
         $this->exception = $exception;
     }

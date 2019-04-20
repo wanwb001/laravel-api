@@ -19,5 +19,6 @@ Route::namespace('Api')->prefix('v1')->middleware('cors')->group(function () {
     Route::post('/login','UserController@login')->name('users.login');
     Route::get('/users/info','UserController@info')->name('users.info');
     Route::get('/users/{user}', 'UserController@show')->where('user', '[0-9]+')->name('users.show');
+    Route::get('/logout','UserController@logout')->name('users.logout');
 
 });
